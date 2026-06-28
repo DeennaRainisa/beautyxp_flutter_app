@@ -68,7 +68,6 @@ flutter:
 
   assets:
     - assets/camera_click.mp3
-    - assets/BeautyXP_SkinConcern_Model.tflite
     - assets/BeautyXP_labels.txt
     - assets/BeautyXP_SkinConcern_Model2.tflite
   # To add assets to your application, add an assets section, like this:
