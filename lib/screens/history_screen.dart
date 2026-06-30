@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../services/firestore_service.dart';
-import '../data/products.dart'; // Imports your hardcoded product data list
-import '../models/product.dart'; // Imports your Product class model
+import '../data/products.dart'; 
+import '../models/product.dart'; 
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
 
-  // Looks up the item inside your data array to get exact category and image details
   Product? findProductByName(String name) {
     try {
       return allProducts.firstWhere(
         (p) => p.name.trim().toLowerCase() == name.trim().toLowerCase(),
       );
     } catch (_) {
-      return null; // Return null safely if product isn't found
+      return null; 
     }
   }
 
-  // Returns beautiful UI formatting labels with matching emojis
   String getCategoryEmojiLabel(String category) {
     switch (category.toLowerCase()) {
       case "cleanser":
@@ -42,7 +40,7 @@ class HistoryScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// HEADER (Perfect-Centered Title with Left-Aligned White Circular Back Button)
+
             Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 10),
               child: Row(
@@ -66,7 +64,7 @@ class HistoryScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 44), // Balances out the back button perfectly
+                  const SizedBox(width: 44),
                 ],
               ),
             ),
@@ -133,7 +131,7 @@ class HistoryScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            /// Card Meta Header (Skin Type, Budget & Delete Button)
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -175,10 +173,8 @@ class HistoryScreen extends StatelessWidget {
                                 itemBuilder: (context, pIndex) {
                                   String productName = products[pIndex];
                                   
-                                  // Look up item inside your actual list asset mapping
                                   Product? matchedProduct = findProductByName(productName);
 
-                                  // Extract exact variables or fall back if anything is missing
                                   String categoryLabel = matchedProduct != null 
                                       ? getCategoryEmojiLabel(matchedProduct.category)
                                       : "✨ Skincare";
@@ -191,7 +187,6 @@ class HistoryScreen extends StatelessWidget {
                                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                                     child: Row(
                                       children: [
-                                        /// Left side: Real Asset Image Box
                                         Container(
                                           width: 60,
                                           height: 60,
@@ -214,7 +209,6 @@ class HistoryScreen extends StatelessWidget {
                                         ),
                                         const SizedBox(width: 14),
 
-                                        /// Right side: Exact Category & Name
                                         Expanded(
                                           child: Column(
                                             crossAxisAlignment: CrossAxisAlignment.start,

@@ -54,7 +54,6 @@ class RecommendationScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             
-            /// HEADER (With Left Back Button and Right History Button)
             Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 10),
               child: Row(
@@ -78,7 +77,7 @@ class RecommendationScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Added History Button here!
+
                   CircleAvatar(
                     backgroundColor: Colors.white,
                     radius: 22,
@@ -233,7 +232,7 @@ class RecommendationScreen extends StatelessWidget {
         ),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF6B21A8), // Elegant purple accent matching theme
+            backgroundColor: const Color(0xFF6B21A8), 
             foregroundColor: Colors.white,
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(
@@ -248,13 +247,10 @@ class RecommendationScreen extends StatelessWidget {
               products: recommendations.map((e) => e.name).toList(),
             );
 
-          // 2. Check if the widget is still in the widget tree before showing the UI notification
             if (!context.mounted) return;
 
-            // 3. Clear any existing snackbars to prevent layout queuing delays
             ScaffoldMessenger.of(context).clearSnackBars();
 
-            // 4. Show your beautifully designed custom SnackBar
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: const Row(
