@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFFFF7FB),
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,21 +40,31 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  CircleAvatar(
-                    radius: 28,
-                    backgroundColor: const Color(0xFFB85CA8),
-                    child: Text(
-                      userName[0],
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProfileScreen(),
+                        ),
+                      );
+                    },
+                    child: CircleAvatar(
+                      radius: 28,
+                      backgroundColor: const Color(0xFFB85CA8),
+                      child: Text(
+                        userName[0],
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 28),
               Row(
                 children: [
                   _statCard(Icons.access_time, 'Analyses', '1'),
@@ -62,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                   _statCard(Icons.auto_awesome, 'Streak', '3 days'),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 28),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(22),
@@ -106,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 28),
               const Text(
                 'Your Skin Profile',
                 style: TextStyle(
@@ -114,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 18),
+              const SizedBox(height: 16),
               _profileItem(
                 Icons.face,
                 'Type: Oily',
@@ -126,52 +136,52 @@ class HomeScreen extends StatelessWidget {
                 'AI Detected: NORMAL',
                 'Confidence: 96.3%',
               ),
-              const Spacer(),
-              BottomNavigationBar(
-                currentIndex: 0,
-                selectedItemColor: const Color(0xFFB85CA8),
-                unselectedItemColor: Colors.grey,
-                type: BottomNavigationBarType.fixed,
-                onTap: (index) {
-                  if (index == 2) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Navigate to Recommendation Module'),
-                      ),
-                    );
-                  }
-
-                  if (index == 3) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ProfileScreen(),
-                      ),
-                    );
-                  }
-                },
-                items: const [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.history),
-                    label: 'History',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.spa),
-                    label: 'Products',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    label: 'Profile',
-                  ),
-                ],
-              ),
+              const SizedBox(height: 30),
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        selectedItemColor: const Color(0xFFB85CA8),
+        unselectedItemColor: Colors.grey,
+        type: BottomNavigationBarType.fixed,
+        onTap: (index) {
+          if (index == 2) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Navigate to Recommendation Module'),
+              ),
+            );
+          }
+
+          if (index == 3) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ProfileScreen(),
+              ),
+            );
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.spa),
+            label: 'Products',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }
