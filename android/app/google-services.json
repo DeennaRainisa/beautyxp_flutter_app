@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "647457575978",
+    "project_id": "beautyxp-2026-2cf78",
+    "storage_bucket": "beautyxp-2026-2cf78.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647457575978:android:c1e28e6f09fb47ca505f53",
+        "android_client_info": {
+          "package_name": "com.example.beautyxp_flutter_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYmGYiMmUjwU0EA22kywMjBMqd5BQMo_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
