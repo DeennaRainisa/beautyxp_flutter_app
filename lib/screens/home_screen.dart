@@ -7,74 +7,82 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF7EEF5),
       appBar: AppBar(
         title: const Text('BeautyXP'),
-        backgroundColor: const Color(0xFFB85CA8),
-        foregroundColor: Colors.white,
+        backgroundColor: Colors.pink,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 20),
             const Text(
               'Hello, User 👋',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF8E4A8E),
               ),
             ),
             const SizedBox(height: 10),
             const Text(
               'Welcome to BeautyXP, your smart skincare companion.',
-              style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 40),
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-              child: ElevatedButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Skin Analysis Module by Member 2'),
-                    ),
-                  );
-                },
-                child: const Text('Start Skin Analysis'),
+              style: TextStyle(
+                fontSize: 15,
+                color: Colors.grey,
               ),
             ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-              child: ElevatedButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Recommendation Module by Member 3'),
+            const SizedBox(height: 50),
+            Center(
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 220,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Navigate to Skin Analysis Module'),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Start Skin Analysis',
+                      ),
                     ),
-                  );
-                },
-                child: const Text('View Recommendations'),
-              ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ProfileScreen(),
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: 220,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Navigate to Recommendation Module'),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'View Recommendations',
+                      ),
                     ),
-                  );
-                },
-                child: const Text('Profile'),
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: 220,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ProfileScreen(),
+                          ),
+                        );
+                      },
+                      child: const Text('Profile'),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
