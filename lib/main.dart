@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart'; 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(const BeautyXPApp());
+import 'screens/login_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(const MyApp());
 }
 
-class BeautyXPApp extends StatelessWidget {
-  const BeautyXPApp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'BeautyXP',
-      debugShowCheckedModeBanner: false, // Removes the red "DEBUG" banner
-      theme: ThemeData(
-        primarySwatch: Colors.pink,
-        fontFamily: 'Roboto', // Or whichever font you prefer
-      ),
-      home: const HomeScreen(), // This loads your beautiful UI first
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
     );
   }
 }

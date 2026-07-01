@@ -43,6 +43,9 @@ dependencies:
   image: ^4.9.1
   image_picker: ^1.2.2
   shared_preferences: ^2.5.5
+  firebase_core: ^3.15.1
+  cloud_firestore: ^5.6.12
+
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +73,7 @@ flutter:
     - assets/camera_click.mp3
     - assets/BeautyXP_labels.txt
     - assets/BeautyXP_SkinConcern_Model2.tflite
+    - assets/images/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
