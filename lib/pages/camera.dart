@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'camera_preview.dart'; // Navigates to the preview screen
+import 'camera_preview.dart'; 
 
 class CameraScreen extends StatefulWidget {
   const CameraScreen({super.key});
@@ -75,15 +75,13 @@ class _CameraScreenState extends State<CameraScreen> {
                   child: GestureDetector(
                     onTap: () async {
                       try {
-                        // 1. Play the shutter sound
+                    
                         final player = AudioPlayer();
                         await player.play(AssetSource('camera_click.mp3'));
 
-                        // 2. Ensure camera is ready and capture
                         await _initializeControllerFuture;
                         final image = await _controller!.takePicture();
                         
-                        // 3. Navigate to YOUR Preview Screen
                         if (mounted) {
                           Navigator.push(
                             context,
